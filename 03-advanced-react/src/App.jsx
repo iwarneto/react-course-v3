@@ -1,5 +1,4 @@
-import Starter from './tutorial/03-conditional-rendering/starter/07-user-challenge'
-import Final from './tutorial/03-conditional-rendering/final/07-user-challenge'
+import Starter from './tutorial/10-useReducer/starter/01-useReducer'
 
 function App() {
   return (

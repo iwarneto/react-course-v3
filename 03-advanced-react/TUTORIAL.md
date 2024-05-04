@@ -1906,7 +1906,8 @@ const UncontrolledInputs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(e.currentTarget); // ANOTAÇÃO: event.currentTarget pega o elemento form que é pai do submit. O target nesse caso é o botão, e o currentTarget é o form inteiro.
+    
     // const name = formData.get('name');
     // console.log(name);
     // console.log([...formData.entries()]);
