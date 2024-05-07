@@ -253,3 +253,102 @@ ul {
   margin-top: 1rem;
 }
 /* ============= PROJECT CSS =============== */
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow-1);
+  height: 8vh;
+}
+
+.navbar section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80vw;
+  width: 1170px;
+}
+
+.navbar-toggle {
+  display: flex;
+  position: absolute;
+  top: 1vh;
+  right: 3vh;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-900);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 0.5rem;
+}
+
+.navbar-toggle:hover {
+  background-color: var(--grey-200);
+  border: 1px solid var(--grey-300);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+}
+
+.links a {
+  margin: auto 1rem;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: var(--primary-900);
+  font-weight: 500;
+  padding: 0.5rem;
+}
+
+.links a:hover {
+  background-color: var(--grey-200);
+  border: 1px solid var(--grey-300);
+  border-radius: 0.2rem;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+}
+
+.social-links a {
+  margin: auto 0.3rem;
+  color: var(--primary-400);
+}
+
+@media (max-width: 900px) {
+  .social-links {
+    display: none;
+  }
+
+  .links { /* Adicionar a classe .open */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 3.33333rem;
+    left: 0;
+    background-color: var(--grey-200);
+  }
+
+  .links a {
+    box-shadow: -5px 5px 0px 0px black;
+    width: 100%;
+  }
+
+  .navbar section {
+    max-width: 95vw;
+  }
+
+  .navbar-toggle {
+    position: unset; /* Resetar posição */
+  }
+
+}
