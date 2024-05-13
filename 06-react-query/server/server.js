@@ -49,7 +49,11 @@ app.patch('/api/tasks/:id', (req, res) => {
     return task;
   });
 
-  res.json({ msg: 'task updated' });
+  if (taskList.find((task) => task.id === id)) {
+    res.json({ msg: 'task updated' });
+  } else {
+    res.json({ msg: 'task does not exist' })
+  }
 });
 
 app.delete('/api/tasks/:id', (req, res) => {

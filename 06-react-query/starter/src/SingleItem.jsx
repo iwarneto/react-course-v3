@@ -1,10 +1,19 @@
+import { useQueryClient } from "@tanstack/react-query";
+import { useDeleteTask, useEditTask } from "../hooks/RESTHooks";
+
 const SingleItem = ({ item }) => {
+  const queryClient = useQueryClient()
+
+  const {mutate:editItem} = useEditTask(queryClient)
+
+  const {mutate:deleteItem} = useDeleteTask(queryClient)
+
   return (
     <div className='single-item'>
       <input
         type='checkbox'
         checked={item.isDone}
-        onChange={() => console.log('edit task')}
+        onChange={() => editItem(item)}
       />
       <p
         style={{
@@ -17,7 +26,7 @@ const SingleItem = ({ item }) => {
       <button
         className='btn remove-btn'
         type='button'
-        onClick={() => console.log('delete task')}
+        onClick={() => deleteItem(item)}
       >
         delete
       </button>

@@ -1,26 +1,22 @@
-import { useMutation } from '@tanstack/react-query';
-import { useRef, useState } from 'react';
-import customFetch from '../utils/utils';
+import { useQueryClient } from '@tanstack/react-query';
+import { useRef } from 'react';
+import { useCreateTasks } from '../hooks/RESTHooks';
 
 const Form = () => {
   const newTask = useRef(null);
+  const queryClient = useQueryClient()
 
-  const mutation = useMutation({
-    mutationFn: (newTodo) => {
-      const response = customFetch.post('/', newTodo);
-      return response
-    }
-  })
+  const {mutate:createTask, isLoading} = useCreateTasks(queryClient)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    mutation.mutate({title: newTask.current.value})
+    createTask(newTask.current.value);
   };
   return (
     <form onSubmit={handleSubmit}>
       <h4>task bud</h4>
       <div className='form-control'>
-        {mutation.isPending ?
+        {isLoading ?
           <p>
             Loading...
           </p>
